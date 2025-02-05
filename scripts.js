@@ -1,7 +1,44 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for navigation links
+    // Project Carousel
+    const slider = document.querySelector('.project-slider');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const cards = document.querySelectorAll('.project-card');
+    let currentIndex = 0;
+
+    function updateSlider() {
+        const cardWidth = cards[0].offsetWidth + 32; // Including gap
+        slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < cards.length - 3) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    // Project Button Links
+    document.querySelectorAll('.project-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const projectLink = this.getAttribute('data-link');
+            if (projectLink) {
+                window.open(projectLink, '_blank');
+            }
+        });
+    });
+
+    // Smooth Scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
@@ -9,21 +46,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animate skill bars
+    // Skills Animation
     const skillItems = document.querySelectorAll('.skill-item');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillLevel = entry.target.getAttribute('data-skill');
-                entry.target.style.setProperty('--skill-level', skillLevel + '%');
-                entry.target.querySelector('::after').style.width = skillLevel + '%';
+                entry.target.style.width = entry.target.getAttribute('data-skill') + '%';
             }
         });
-    });
+    }, { threshold: 0.5 });
 
     skillItems.forEach(item => observer.observe(item));
 
-    // Handle contact form submission
+    // Contact Form
     const contactForm = document.getElementById('contact-form');
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -34,17 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
             message: document.getElementById('message').value
         };
 
-        // Here you would typically send the form data to a server
         console.log('Form submitted:', formData);
         alert('Thank you for your message! I will get back to you soon.');
         contactForm.reset();
-    });
-
-    // Project button click handlers
-    document.querySelectorAll('.project-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const projectTitle = this.parentElement.querySelector('h3').textContent;
-            alert(`More details about ${projectTitle} coming soon!`);
-        });
     });
 });
