@@ -1,29 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Theme Switcher with localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+    // Theme Switcher with enhanced transitions
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const root = document.documentElement;
     
     function switchTheme(e) {
-        if (e.target.checked) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-        }
+        const isDark = e.target.checked;
+        const theme = isDark ? 'dark' : 'light';
+        
+        // Add transition class
+        root.classList.add('theme-transition');
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Remove transition class after animation completes
+        setTimeout(() => {
+            root.classList.remove('theme-transition');
+        }, 300);
+
+        // Update UI elements
+        document.querySelectorAll('.glass-effect').forEach(el => {
+            el.style.transition = 'background-color 0.3s ease';
+        });
     }
 
     toggleSwitch.addEventListener('change', switchTheme);
 
-    // Check for saved theme preference
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        if (currentTheme === 'dark') {
-            toggleSwitch.checked = true;
-        }
-    }
+    // Apply saved theme
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme', currentTheme);
+    toggleSwitch.checked = currentTheme === 'dark';
 
-    // Enhanced Project Carousel with Touch Support
+    // Enhanced Project Carousel with touch/swipe
     const slider = document.querySelector('.project-slider');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -34,21 +41,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateSlider(animate = true) {
         const cardWidth = cards[0].offsetWidth + 32;
-        if (animate) {
-            slider.style.transition = 'transform 0.5s ease';
-        } else {
-            slider.style.transition = 'none';
-        }
+        slider.style.transition = animate ? 'transform 0.5s ease' : 'none';
         slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === cards.length - 1;
     }
 
-    function handleTouchStart(e) {
+    // Touch and mouse event handlers
+    slider.addEventListener('mousedown', handleDragStart);
+    slider.addEventListener('touchstart', handleDragStart);
+    slider.addEventListener('mousemove', handleDragMove);
+    slider.addEventListener('touchmove', handleDragMove);
+    slider.addEventListener('mouseup', handleDragEnd);
+    slider.addEventListener('touchend', handleDragEnd);
+    slider.addEventListener('mouseleave', handleDragEnd);
+
+    function handleDragStart(e) {
         startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
         isDragging = true;
         slider.style.transition = 'none';
     }
 
-    function handleTouchMove(e) {
+    function handleDragMove(e) {
         if (!isDragging) return;
         e.preventDefault();
         moveX = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
@@ -57,11 +73,12 @@ document.addEventListener('DOMContentLoaded', function() {
         slider.style.transform = `translateX(${-currentIndex * cardWidth + walk}px)`;
     }
 
-    function handleTouchEnd() {
+    function handleDragEnd() {
         if (!isDragging) return;
         isDragging = false;
         const cardWidth = cards[0].offsetWidth + 32;
         const walk = moveX - startX;
+        
         if (Math.abs(walk) > cardWidth / 3) {
             if (walk > 0 && currentIndex > 0) {
                 currentIndex--;
@@ -71,15 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         updateSlider();
     }
-
-    // Touch and mouse event listeners
-    slider.addEventListener('mousedown', handleTouchStart);
-    slider.addEventListener('touchstart', handleTouchStart);
-    slider.addEventListener('mousemove', handleTouchMove);
-    slider.addEventListener('touchmove', handleTouchMove);
-    slider.addEventListener('mouseup', handleTouchEnd);
-    slider.addEventListener('touchend', handleTouchEnd);
-    slider.addEventListener('mouseleave', handleTouchEnd);
 
     // Button controls
     prevBtn.addEventListener('click', () => {
@@ -96,43 +104,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Enhanced Project Button Links with Loading State
-    document.querySelectorAll('.project-btn').forEach(btn => {
-        btn.addEventListener('click', async function(e) {
-            e.preventDefault();
-            const projectLink = this.getAttribute('data-link');
-            if (projectLink) {
-                this.style.opacity = '0.7';
-                this.textContent = 'Loading...';
-                try {
-                    await new Promise(resolve => setTimeout(resolve, 500)); // Simulated loading
-                    window.open(projectLink, '_blank');
-                } finally {
-                    this.style.opacity = '1';
-                    this.textContent = 'Learn More';
-                }
-            }
-        });
-    });
-
-    // Enhanced Contact Form with Validation and Feedback
+    // Enhanced Contact Form with Email Integration
     const contactForm = document.getElementById('contact-form');
+    const YOUR_EMAIL = 'your.email@example.com'; // Replace with your email
+
     contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         const submitBtn = this.querySelector('.submit-btn');
         const formData = {
             name: document.getElementById('name').value.trim(),
             email: document.getElementById('email').value.trim(),
-            message: document.getElementById('message').value.trim()
+            message: document.getElementById('message').value.trim(),
+            to_email: YOUR_EMAIL
         };
 
-        // Basic validation
+        // Validation
         if (!formData.name || !formData.email || !formData.message) {
             alert('Please fill in all fields');
             return;
         }
 
-        if (!formData.email.includes('@')) {
+        if (!isValidEmail(formData.email)) {
             alert('Please enter a valid email address');
             return;
         }
@@ -141,12 +133,23 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.textContent = 'Sending...';
 
         try {
-            // Simulate form submission
+            // Here you would implement your email sending logic
+            // Example using EmailJS:
+            /*
+            await emailjs.send(
+                'YOUR_SERVICE_ID',
+                'YOUR_TEMPLATE_ID',
+                formData,
+                'YOUR_USER_ID'
+            );
+            */
+            
+            // For demonstration, using a timeout
             await new Promise(resolve => setTimeout(resolve, 1000));
-            console.log('Form submitted:', formData);
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
         } catch (error) {
+            console.error('Error sending email:', error);
             alert('There was an error sending your message. Please try again.');
         } finally {
             submitBtn.disabled = false;
@@ -154,7 +157,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scroll for navigation links
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // Smooth scroll navigation
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -167,4 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Initialize the slider
+    updateSlider(false);
 });
