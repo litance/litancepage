@@ -10,14 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        document.querySelector('.container').classList.toggle('dark-mode');
-        document.querySelectorAll('h1, h2').forEach(el => el.classList.toggle('dark-mode'));
-        document.querySelectorAll('pre').forEach(el => el.classList.toggle('dark-mode'));
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
     }
 
-    toggleSwitch.addEventListener('change', toggleDarkMode);
+    toggleSwitch.addEventListener('change', switchTheme);
 
     // Enhanced Project Carousel with touch/swipe
     const slider = document.querySelector('.project-slider');
@@ -32,20 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardWidth = cards[0].offsetWidth + 32;
         slider.style.transition = animate ? 'transform 0.5s ease' : 'none';
         slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        
+
         // Update button states
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex === cards.length - 1;
     }
-
-    // Touch and mouse event handlers
-    slider.addEventListener('mousedown', handleDragStart);
-    slider.addEventListener('touchstart', handleDragStart);
-    slider.addEventListener('mousemove', handleDragMove);
-    slider.addEventListener('touchmove', handleDragMove);
-    slider.addEventListener('mouseup', handleDragEnd);
-    slider.addEventListener('touchend', handleDragEnd);
-    slider.addEventListener('mouseleave', handleDragEnd);
 
     function handleDragStart(e) {
         startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
@@ -67,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         isDragging = false;
         const cardWidth = cards[0].offsetWidth + 32;
         const walk = moveX - startX;
-        
+
         if (Math.abs(walk) > cardWidth / 3) {
             if (walk > 0 && currentIndex > 0) {
                 currentIndex--;
@@ -78,7 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlider();
     }
 
-    // Button controls
+    slider.addEventListener('mousedown', handleDragStart);
+    slider.addEventListener('touchstart', handleDragStart);
+    slider.addEventListener('mousemove', handleDragMove);
+    slider.addEventListener('touchmove', handleDragMove);
+    slider.addEventListener('mouseup', handleDragEnd);
+    slider.addEventListener('touchend', handleDragEnd);
+    slider.addEventListener('mouseleave', handleDragEnd);
+
     prevBtn.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
@@ -93,13 +94,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    updateSlider(false);
+
     // Contact Form
     const contactForm = document.getElementById('contact-form');
-    
+
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = contactForm.querySelector('.submit-btn');
-        
+
         // Basic form validation
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
@@ -139,7 +142,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Initialize the slider
-    updateSlider(false);
 });
