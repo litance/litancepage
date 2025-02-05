@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="glass-effect">
-        <h1>John Doe</h1>
-        <p class="title-animation">Full Stack Developer & UI/UX Designer</p>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <em>Dark Mode</em>
+        </div>
+        <h1 class="main-title">John Doe</h1>
+        <p class="subtitle">Full Stack Developer & UI/UX Designer</p>
         <nav>
             <ul id="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
@@ -22,18 +31,14 @@
     </header>
 
     <section id="about" class="section-padding glass-effect">
-        <h2>About Me</h2>
+        <h2 class="section-title">About Me</h2>
         <div class="about-content">
-            <div class="profile-image">
-                <!-- Add your profile image here -->
-                <img src="profile-placeholder.jpg" alt="John Doe">
-            </div>
-            <p>I'm a passionate full-stack developer with a keen eye for design and user experience. With expertise in modern web technologies, I create scalable and elegant solutions that make a difference.</p>
+            <p class="about-text">I'm a passionate full-stack developer with a keen eye for design and user experience. With expertise in modern web technologies, I create scalable and elegant solutions that make a difference.</p>
         </div>
     </section>
 
     <section id="skills" class="section-padding">
-        <h2>Skills & Expertise</h2>
+        <h2 class="section-title">Skills & Expertise</h2>
         <div class="skills-container">
             <div class="skill-item" data-skill="95">
                 <i class="fab fa-html5"></i>
@@ -51,50 +56,36 @@
                 <i class="fab fa-node"></i>
                 <span>Node.js</span>
             </div>
-            <div class="skill-item" data-skill="88">
-                <i class="fas fa-paint-brush"></i>
-                <span>UI/UX Design</span>
-            </div>
         </div>
     </section>
 
     <section id="projects" class="section-padding">
-        <h2>Featured Projects</h2>
+        <h2 class="section-title">Featured Projects</h2>
         <div class="project-carousel">
             <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
             <div class="project-slider">
                 <div class="project-card glass-effect">
-                    <div class="project-image">
-                        <img src="project1.jpg" alt="E-commerce Project">
-                    </div>
-                    <h3>E-commerce Platform</h3>
-                    <p>A full-stack e-commerce solution with React and Node.js</p>
+                    <h3 class="project-title">E-commerce Platform</h3>
+                    <p class="project-description">A full-stack e-commerce solution with React and Node.js</p>
                     <a href="#" class="project-btn" data-link="https://project1.com">Learn More</a>
                 </div>
                 <div class="project-card glass-effect">
-                    <div class="project-image">
-                        <img src="project2.jpg" alt="Portfolio Gallery">
-                    </div>
-                    <h3>Dynamic Portfolio</h3>
-                    <p>Interactive gallery with advanced filtering</p>
+                    <h3 class="project-title">Dynamic Portfolio</h3>
+                    <p class="project-description">Interactive gallery with advanced filtering</p>
                     <a href="#" class="project-btn" data-link="https://project2.com">Learn More</a>
                 </div>
                 <div class="project-card glass-effect">
-                    <div class="project-image">
-                        <img src="project3.jpg" alt="Weather App">
-                    </div>
-                    <h3>Weather Dashboard</h3>
-                    <p>Real-time weather tracking with OpenWeather API</p>
+                    <h3 class="project-title">Weather Dashboard</h3>
+                    <p class="project-description">Real-time weather tracking with OpenWeather API</p>
                     <a href="#" class="project-btn" data-link="https://project3.com">Learn More</a>
                 </div>
-                <!-- Add more project cards as needed -->
             </div>
             <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
     <section id="contact" class="section-padding glass-effect">
-        <h2>Get in Touch</h2>
+        <h2 class="section-title">Get in Touch</h2>
         <form id="contact-form">
             <div class="form-group">
                 <input type="text" id="name" required>
@@ -111,7 +102,5 @@
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
     </section>
-
-    <script src="script.js"></script>
 </body>
 </html>
