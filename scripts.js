@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Theme Switcher with enhanced transitions
+    // Theme Switcher
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    const root = document.documentElement;
     const currentTheme = localStorage.getItem('theme');
 
     if (currentTheme) {
@@ -10,33 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleSwitch.checked = true;
         }
     }
-    
-    function switchTheme(e) {
-        const isDark = e.target.checked;
-        const theme = isDark ? 'dark' : 'light';
-        
-        // Add transition class
-        root.classList.add('theme-transition');
-        root.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
 
-        // Remove transition class after animation completes
-        setTimeout(() => {
-            root.classList.remove('theme-transition');
-        }, 300);
-
-        // Update UI elements
-        document.querySelectorAll('.glass-effect').forEach(el => {
-            el.style.transition = 'background-color 0.3s ease';
-        });
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        document.querySelector('.container').classList.toggle('dark-mode');
+        document.querySelectorAll('h1, h2').forEach(el => el.classList.toggle('dark-mode'));
+        document.querySelectorAll('pre').forEach(el => el.classList.toggle('dark-mode'));
     }
 
-    toggleSwitch.addEventListener('change', switchTheme);
-
-    // Apply saved theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', savedTheme);
-    toggleSwitch.checked = savedTheme === 'dark';
+    toggleSwitch.addEventListener('change', toggleDarkMode);
 
     // Enhanced Project Carousel with touch/swipe
     const slider = document.querySelector('.project-slider');
