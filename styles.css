@@ -220,6 +220,11 @@ nav ul {
     background: var(--secondary-color);
 }
 
+.carousel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .prev-btn { left: 0; }
 .next-btn { right: 0; }
 
