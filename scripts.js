@@ -1,7 +1,15 @@
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Theme Switcher with enhanced transitions
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const root = document.documentElement;
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
+    }
     
     function switchTheme(e) {
         const isDark = e.target.checked;
@@ -26,9 +34,9 @@
     toggleSwitch.addEventListener('change', switchTheme);
 
     // Apply saved theme
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    root.setAttribute('data-theme', currentTheme);
-    toggleSwitch.checked = currentTheme === 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    root.setAttribute('data-theme', savedTheme);
+    toggleSwitch.checked = savedTheme === 'dark';
 
     // Enhanced Project Carousel with touch/swipe
     const slider = document.querySelector('.project-slider');
@@ -104,28 +112,20 @@
         }
     });
 
-    // Enhanced Contact Form with Email Integration
+    // Contact Form
     const contactForm = document.getElementById('contact-form');
-    const YOUR_EMAIL = 'your.email@example.com'; // Replace with your email
-
-    contactForm.addEventListener('submit', async function(e) {
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const submitBtn = this.querySelector('.submit-btn');
-        const formData = {
-            name: document.getElementById('name').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            message: document.getElementById('message').value.trim(),
-            to_email: YOUR_EMAIL
-        };
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        
+        // Basic form validation
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
 
-        // Validation
-        if (!formData.name || !formData.email || !formData.message) {
+        if (!name || !email || !message) {
             alert('Please fill in all fields');
-            return;
-        }
-
-        if (!isValidEmail(formData.email)) {
-            alert('Please enter a valid email address');
             return;
         }
 
@@ -133,35 +133,19 @@
         submitBtn.textContent = 'Sending...';
 
         try {
-            // Here you would implement your email sending logic
-            // Example using EmailJS:
-            /*
-            await emailjs.send(
-                'YOUR_SERVICE_ID',
-                'YOUR_TEMPLATE_ID',
-                formData,
-                'YOUR_USER_ID'
-            );
-            */
-            
-            // For demonstration, using a timeout
+            // Simulate sending (replace with actual API call)
             await new Promise(resolve => setTimeout(resolve, 1000));
-            alert('Thank you for your message! I will get back to you soon.');
+            alert('Message sent successfully!');
             contactForm.reset();
         } catch (error) {
-            console.error('Error sending email:', error);
-            alert('There was an error sending your message. Please try again.');
+            alert('Failed to send message. Please try again.');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = 'Send Message';
         }
     });
 
-    function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    // Smooth scroll navigation
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
