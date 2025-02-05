@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Professional Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="glass-effect">
@@ -23,7 +21,6 @@
         <nav>
             <ul id="nav-links">
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -37,32 +34,10 @@
         </div>
     </section>
 
-    <section id="skills" class="section-padding">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-container">
-            <div class="skill-item" data-skill="95">
-                <i class="fab fa-html5"></i>
-                <span>HTML5 & CSS3</span>
-            </div>
-            <div class="skill-item" data-skill="90">
-                <i class="fab fa-js"></i>
-                <span>JavaScript</span>
-            </div>
-            <div class="skill-item" data-skill="85">
-                <i class="fab fa-react"></i>
-                <span>React</span>
-            </div>
-            <div class="skill-item" data-skill="80">
-                <i class="fab fa-node"></i>
-                <span>Node.js</span>
-            </div>
-        </div>
-    </section>
-
     <section id="projects" class="section-padding">
         <h2 class="section-title">Featured Projects</h2>
         <div class="project-carousel">
-            <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn prev-btn">Previous</button>
             <div class="project-slider">
                 <div class="project-card glass-effect">
                     <h3 class="project-title">E-commerce Platform</h3>
@@ -80,7 +55,7 @@
                     <a href="#" class="project-btn" data-link="https://project3.com">Learn More</a>
                 </div>
             </div>
-            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            <button class="carousel-btn next-btn">Next</button>
         </div>
     </section>
 
@@ -88,19 +63,18 @@
         <h2 class="section-title">Get in Touch</h2>
         <form id="contact-form">
             <div class="form-group">
-                <input type="text" id="name" required>
-                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Your Name" required>
             </div>
             <div class="form-group">
-                <input type="email" id="email" required>
-                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Your Email" required>
             </div>
             <div class="form-group">
-                <textarea id="message" required></textarea>
-                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Your Message" required></textarea>
             </div>
             <button type="submit" class="submit-btn">Send Message</button>
         </form>
     </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
