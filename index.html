@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>John Doe</h1>
+        <p>Web Developer & Designer</p>
+        <nav>
+            <ul id="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm a passionate web developer with expertise in creating beautiful and functional websites. I love turning ideas into reality through code.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-item" data-skill="90">HTML5 & CSS3</div>
+            <div class="skill-item" data-skill="85">JavaScript</div>
+            <div class="skill-item" data-skill="80">React</div>
+            <div class="skill-item" data-skill="75">Node.js</div>
+            <div class="skill-item" data-skill="85">UI/UX Design</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>E-commerce Website</h3>
+                <p>A full-stack e-commerce solution</p>
+                <button class="project-btn">Learn More</button>
+            </div>
+            <div class="project-card">
+                <h3>Portfolio Gallery</h3>
+                <p>Interactive image gallery</p>
+                <button class="project-btn">Learn More</button>
+            </div>
+            <div class="project-card">
+                <h3>Weather App</h3>
+                <p>Real-time weather tracking</p>
+                <button class="project-btn">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-info">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
