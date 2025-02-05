@@ -3,67 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>My Professional Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="glass-effect">
         <h1>John Doe</h1>
-        <p>Web Developer & Designer</p>
+        <p class="title-animation">Full Stack Developer & UI/UX Designer</p>
         <nav>
             <ul id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section id="about">
+    <section id="about" class="section-padding glass-effect">
         <h2>About Me</h2>
-        <p>Hello! I'm a passionate web developer with expertise in creating beautiful and functional websites. I love turning ideas into reality through code.</p>
+        <div class="about-content">
+            <div class="profile-image">
+                <!-- Add your profile image here -->
+                <img src="profile-placeholder.jpg" alt="John Doe">
+            </div>
+            <p>I'm a passionate full-stack developer with a keen eye for design and user experience. With expertise in modern web technologies, I create scalable and elegant solutions that make a difference.</p>
+        </div>
     </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
+    <section id="skills" class="section-padding">
+        <h2>Skills & Expertise</h2>
         <div class="skills-container">
-            <div class="skill-item" data-skill="90">HTML5 & CSS3</div>
-            <div class="skill-item" data-skill="85">JavaScript</div>
-            <div class="skill-item" data-skill="80">React</div>
-            <div class="skill-item" data-skill="75">Node.js</div>
-            <div class="skill-item" data-skill="85">UI/UX Design</div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3>E-commerce Website</h3>
-                <p>A full-stack e-commerce solution</p>
-                <button class="project-btn">Learn More</button>
+            <div class="skill-item" data-skill="95">
+                <i class="fab fa-html5"></i>
+                <span>HTML5 & CSS3</span>
             </div>
-            <div class="project-card">
-                <h3>Portfolio Gallery</h3>
-                <p>Interactive image gallery</p>
-                <button class="project-btn">Learn More</button>
+            <div class="skill-item" data-skill="90">
+                <i class="fab fa-js"></i>
+                <span>JavaScript</span>
             </div>
-            <div class="project-card">
-                <h3>Weather App</h3>
-                <p>Real-time weather tracking</p>
-                <button class="project-btn">Learn More</button>
+            <div class="skill-item" data-skill="85">
+                <i class="fab fa-react"></i>
+                <span>React</span>
+            </div>
+            <div class="skill-item" data-skill="80">
+                <i class="fab fa-node"></i>
+                <span>Node.js</span>
+            </div>
+            <div class="skill-item" data-skill="88">
+                <i class="fas fa-paint-brush"></i>
+                <span>UI/UX Design</span>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-info">
-        <h2>Contact Me</h2>
+    <section id="projects" class="section-padding">
+        <h2>Featured Projects</h2>
+        <div class="project-carousel">
+            <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <div class="project-slider">
+                <div class="project-card glass-effect">
+                    <div class="project-image">
+                        <img src="project1.jpg" alt="E-commerce Project">
+                    </div>
+                    <h3>E-commerce Platform</h3>
+                    <p>A full-stack e-commerce solution with React and Node.js</p>
+                    <a href="#" class="project-btn" data-link="https://project1.com">Learn More</a>
+                </div>
+                <div class="project-card glass-effect">
+                    <div class="project-image">
+                        <img src="project2.jpg" alt="Portfolio Gallery">
+                    </div>
+                    <h3>Dynamic Portfolio</h3>
+                    <p>Interactive gallery with advanced filtering</p>
+                    <a href="#" class="project-btn" data-link="https://project2.com">Learn More</a>
+                </div>
+                <div class="project-card glass-effect">
+                    <div class="project-image">
+                        <img src="project3.jpg" alt="Weather App">
+                    </div>
+                    <h3>Weather Dashboard</h3>
+                    <p>Real-time weather tracking with OpenWeather API</p>
+                    <a href="#" class="project-btn" data-link="https://project3.com">Learn More</a>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <section id="contact" class="section-padding glass-effect">
+        <h2>Get in Touch</h2>
         <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+            <div class="form-group">
+                <input type="text" id="name" required>
+                <label for="name">Your Name</label>
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" required>
+                <label for="email">Your Email</label>
+            </div>
+            <div class="form-group">
+                <textarea id="message" required></textarea>
+                <label for="message">Your Message</label>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
         </form>
     </section>
 
