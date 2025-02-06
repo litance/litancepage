@@ -102,6 +102,9 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const submitBtn = contactForm.querySelector('.submit-btn');
+        
+        // Email address to send the form data to
+        const targetEmail = 'leejm-wm24@student.tarc.my'; // Replace with your email address
 
         // Basic form validation
         const name = document.getElementById('name').value;
@@ -118,9 +121,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // Simulate sending (replace with actual API call)
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            alert('Message sent successfully!');
-            contactForm.reset();
+            const response = await fetch('https://example.com/send-email', { // Replace with your email sending service endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name, email, message, targetEmail }),
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            } else {
+                throw new Error('Failed to send message');
+            }
         } catch (error) {
             alert('Failed to send message. Please try again.');
         } finally {
