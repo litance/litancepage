@@ -252,8 +252,8 @@ nav ul {
     cursor: not-allowed;
 }
 
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
+.prev-btn { left: -40px; }
+.next-btn { right: -40px; }
 
 #contact-form {
     max-width: 600px;
