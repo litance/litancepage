@@ -96,53 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateSlider(false);
 
-    // Contact Form
-    const contactForm = document.getElementById('contact-form');
-
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitBtn = contactForm.querySelector('.submit-btn');
-        
-        // Email address to send the form data to
-        const targetEmail = 'leejm-wm24@student.tarc.my'; // Replace with your email address
-
-        // Basic form validation
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        if (!name || !email || !message) {
-            alert('Please fill in all fields');
-            return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-
-        try {
-            // Simulate sending (replace with actual API call)
-            const response = await fetch('https://example.com/send-email', { // Replace with your email sending service endpoint
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ name, email, message, targetEmail }),
-            });
-
-            if (response.ok) {
-                alert('Message sent successfully!');
-                contactForm.reset();
-            } else {
-                throw new Error('Failed to send message');
-            }
-        } catch (error) {
-            alert('Failed to send message. Please try again.');
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
-        }
-    });
-
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
