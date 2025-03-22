@@ -639,58 +639,62 @@ p {
 }
 
 .about-visual {
-    flex: 1;
+    font-family: 'Monaco', 'Consolas', monospace;
 }
 
 .code-snippet {
-    background-color: var(--gray-900);
-    border-radius: var(--radius-md);
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Code Header */
 .code-header {
+    background-color: #1e2432;
+    padding: 10px 15px;
     display: flex;
     align-items: center;
-    padding: var(--space-sm) var(--space-md);
-    background-color: var(--gray-800);
 }
 
 .dot {
     width: 12px;
     height: 12px;
-    border-radius: var(--radius-full);
-    margin-right: var(--space-sm);
+    border-radius: 50%;
+    margin-right: 6px;
 }
 
-.red {
-    background-color: #ff5f56;
-}
-
-.yellow {
-    background-color: #ffbd2e;
-}
-
-.green {
-    background-color: #27c93f;
-}
+.red { background-color: #ff5f56; }
+.yellow { background-color: #ffbd2e; }
+.green { background-color: #27c93f; }
 
 .file-name {
-    margin-left: var(--space-md);
-    color: var(--gray-400);
-    font-size: 0.875rem;
+    color: #8c96a5;
+    margin-left: 10px;
+    font-size: 14px;
 }
 
-.code-snippet pre {
-    padding: var(--space-md);
-    overflow-x: auto;
+/* Code Section */
+pre {
+    margin: 0;
+    background-color: #1e2432 !important;
 }
 
-.code-snippet code {
-    font-family: 'Courier New', monospace;
-    color: var(--gray-300);
-    line-height: 1.5;
+code.language-python {
+    background-color: #1e2432 !important;
+    color: #c3c8d1;
+    font-family: 'Monaco', 'Consolas', monospace;
+    padding: 15px !important;
+    display: block;
+    tab-size: 4;
 }
+
+/* Python Highlight */
+.language-python .token.keyword { color: #c678dd; }  /* class, def 等关键字 */
+.language-python .token.function { color: #61afef; }  /* 函数名 */
+.language-python .token.string { color: #98c379; }  /* 字符串 */
+.language-python .token.comment { color: #5c6370; }  /* 注释 */
+.language-python .token.property { color: #e06c75; }  /* self.xxx 中的 xxx */
+.language-python .token.operator { color: #56b6c2; }  /* =, +, - 等操作符 */
 
 /* Skills Section */
 .skills-content {
