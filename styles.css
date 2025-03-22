@@ -738,7 +738,6 @@ p {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: var(--primary-light);
     color: var(--primary-dark);
     border-radius: var(--radius-md);
     font-size: 1.25rem;
