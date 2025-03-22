@@ -50,16 +50,49 @@
 }
 
 /* Theme colors */
+/* Theme colors - Light Mode Improvements */
 :root[data-theme="light"] {
-    --bg-primary: var(--white);
-    --bg-secondary: var(--gray-100);
-    --bg-tertiary: var(--gray-200);
-    --text-primary: var(--gray-900);
-    --text-secondary: var(--gray-700);
-    --text-tertiary: var(--gray-500);
-    --border-color: var(--gray-200);
-    --card-bg: var(--white);
-    --card-shadow: var(--shadow-md);
+    /* Softer background colors with subtle warmth */
+    --bg-primary: #fcfcfc;
+    --bg-secondary: #f7f9fc;
+    --bg-tertiary: #eef2f7;
+    
+    /* Warmer, less harsh text colors with better contrast ratios */
+    --text-primary: #333342;
+    --text-secondary: #4a5568;
+    --text-tertiary: #718096;
+    
+    /* Softer borders */
+    --border-color: #e8edf5;
+    
+    /* Card background with subtle warmth */
+    --card-bg: #ffffff;
+    
+    /* Gentler shadow */
+    --card-shadow: 0 4px 10px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* You may also want to adjust these primary colors to be more visually pleasant */
+:root {
+    /* Updated primary colors with better harmony */
+    --primary: #5b66ea;         /* Slightly less saturated */
+    --primary-dark: #4954c8;    /* Deeper but still vibrant */
+    --primary-light: #8a92f1;   /* Softer light variant */
+    
+    /* More harmonious secondary and accent colors */
+    --secondary: #0eb4a0;       /* Slightly adjusted teal */
+    --accent: #f04d67;          /* Less harsh pink/red */
+    
+    /* Adjusted gray scale for better visual hierarchy */
+    --gray-100: #f5f7fa;
+    --gray-200: #e9eef6;
+    --gray-300: #d3dce9;
+    --gray-400: #9eabc1;
+    --gray-500: #6c7a94;
+    --gray-600: #4e5a72;
+    --gray-700: #3a4458;
+    --gray-800: #293249;
+    --gray-900: #1a2138;
 }
 
 :root[data-theme="dark"] {
