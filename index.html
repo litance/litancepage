@@ -3,124 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <meta name="description" content="Litance - Computer Science Student Portfolio showcasing AI, Machine Learning and Web Development projects">
+    <title>Litance | Computer Science Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="glass-effect">
-        <div class="theme-switch-wrapper">
-            <label class="theme-switch" for="checkbox">
-                <input type="checkbox" id="checkbox" />
-                <div class="slider round"></div>
-            </label>
-            <em>Dark Mode</em>
-        </div>
-        <h1 class="main-title">Litance</h1>
-        <p class="subtitle">Computer Science Student</p>
-        <nav>
-            <ul id="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="page-wrapper">
+        <!-- Header with Navigation -->
+        <header class="header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo-container">
+                        <a href="#hero" class="logo">L<span class="accent">.</span></a>
+                    </div>
+                    
+                    <nav class="nav-desktop">
+                        <ul class="nav-links">
+                            <li><a href="#about" class="nav-link">About</a></li>
+                            <li><a href="#skills" class="nav-link">Skills</a></li>
+                            <li><a href="#projects" class="nav-link">Projects</a></li>
+                            <li><a href="#contact" class="nav-link">Contact</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="header-actions">
+                        <button class="theme-toggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </button>
+                        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <nav class="nav-mobile">
+                <ul class="mobile-nav-links">
+                    <li><a href="#about" class="mobile-nav-link">About</a></li>
+                    <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+                    <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+                    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section id="about" class="section-padding glass-effect">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <p class="about-text">I am a Computer Science student, currently working on implementing all ideas, including but not limited to: Deep Learning, Machine Learning, OpenCV, Data Analysis, Web Development, Program Development.</p>
-        </div>
-    </section>
+        <main>
+            <!-- Hero Section -->
+            <section id="hero" class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="greeting">Hello, I'm</span>
+                            <span class="name">Litance</span>
+                        </h1>
+                        <h2 class="hero-subtitle">Computer Science Student & AI Enthusiast</h2>
+                        <p class="hero-description">Exploring the intersection of AI, Machine Learning, and Software Development</p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn btn-primary">View Projects</a>
+                            <a href="#contact" class="btn btn-outline">Contact Me</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="blob-animation"></div>
+                        <div class="tech-icons">
+                            <div class="tech-icon python"><i class="fab fa-python"></i></div>
+                            <div class="tech-icon js"><i class="fab fa-js"></i></div>
+                            <div class="tech-icon html"><i class="fab fa-html5"></i></div>
+                            <div class="tech-icon css"><i class="fab fa-css3-alt"></i></div>
+                            <div class="tech-icon cpp">C++</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <div class="arrow">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </section>
 
-    <section id="skills" class="section-padding glass-effect">
-        <h2 class="section-title">Personal Skills</h2>
-        <div class="skills-content">
-            <div class="skill-card">
-                <i class="icon-html5"></i>
-                <p>HTML</p>
-            </div>
-            <div class="skill-card">
-                <i class="icon-css3"></i>
-                <p>CSS</p>
-            </div>
-            <div class="skill-card">
-                <i class="icon-javascript"></i>
-                <p>JavaScript</p>
-            </div>
-            <div class="skill-card">
-                <i class="icon-cplusplus"></i>
-                <p>C++</p>
-            </div>
-            <div class="skill-card">
-                <i class="icon-python"></i>
-                <p>Python</p>
-            </div>
-            <div class="skill-card">
-                <i class="icon-oracle"></i>
-                <p>OracleSQL</p>
-            </div>
-        </div>
-    </section>
+            <!-- About Section -->
+            <section id="about" class="about section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">About Me</span>
+                        <h2 class="section-title">My Journey</h2>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p class="lead">I'm a passionate Computer Science student with a focus on artificial intelligence and machine learning technologies.</p>
+                            <p>My academic journey has equipped me with a strong foundation in computer science principles, while my personal projects have allowed me to explore cutting-edge technologies in AI, computer vision, and web development.</p>
+                            <p>I believe in the power of technology to solve real-world problems and am constantly expanding my knowledge to contribute to this rapidly evolving field.</p>
+                            <div class="about-stats">
+                                <div class="stat">
+                                    <span class="stat-number">10+</span>
+                                    <span class="stat-label">Projects Completed</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">6+</span>
+                                    <span class="stat-label">Technologies</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">3+</span>
+                                    <span class="stat-label">Years Learning</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-visual">
+                            <div class="code-snippet">
+                                <div class="code-header">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                    <span class="file-name">profile.py</span>
+                                </div>
+                                <pre><code class="language-python">
+class Litance:
+    def __init__(self):
+        self.name = "Litance"
+        self.role = "Computer Science Student"
+        self.languages = ["Python", "C++", "JavaScript", 
+                        "HTML", "CSS", "SQL"]
+        self.interests = ["AI", "ML", "Data Analysis", 
+                        "Web Dev", "Computer Vision"]
+                        
+    def greet(self):
+        return "Welcome to my portfolio!"
+        
+    def current_focus(self):
+        return "Developing AI solutions to real-world problems"
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <section id="projects" class="section-padding">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="project-carousel">
-            <button class="carousel-btn prev-btn">&#10094;</button>
-            <div class="project-slider">
-                <div class="project-card glass-effect">
-                    <h3 class="project-title">Handwritten digit recognition</h3>
-                    <p class="project-description">Simple handwritten digit recognition based on Python CNN simple neural network</p>
-                    <a href="https://github.com/litance/CNN-handwrite" class="project-btn" data-link="https://github.com/litance/CNN-handwrite">Learn More</a>
+            <!-- Skills Section -->
+            <section id="skills" class="skills section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">My Skills</span>
+                        <h2 class="section-title">Technical Expertise</h2>
+                    </div>
+                    <div class="skills-content">
+                        <div class="skill-category">
+                            <h3 class="category-title">
+                                <i class="fas fa-brain"></i>
+                                AI & Machine Learning
+                            </h3>
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">Deep Learning</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fas fa-camera"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">Computer Vision</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">Data Analysis</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3 class="category-title">
+                                <i class="fas fa-code"></i>
+                                Programming Languages
+                            </h3>
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fab fa-python"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">Python</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-card">
+                                    <div class="skill-icon c-plus">C++</div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">C++</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fab fa-js"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">JavaScript</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h3 class="category-title">
+                                <i class="fas fa-globe"></i>
+                                Web Development
+                            </h3>
+                            <div class="skills-grid">
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fab fa-html5"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">HTML</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fab fa-css3-alt"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">CSS</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-card">
+                                    <div class="skill-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <div class="skill-info">
+                                        <h4 class="skill-name">OracleSQL</h4>
+                                        <div class="skill-bar">
+                                            <div class="skill-progress" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="project-card glass-effect">
-                    <h3 class="project-title">Personal web development</h3>
-                    <p class="project-description">Personal web page with skills, projects and contact information</p>
-                    <a href="https://github.com/litance/litancepage" class="project-btn" data-link="https://github.com/litance/litancepage">Learn More</a>
-                </div>
-                <div class="project-card glass-effect">
-                    <h3 class="project-title">Cat Dog Classification</h3>
-                    <p class="project-description">Cat and Dog Image Recognition Based on Pytorch Deep Learning (ResNet Model (Transfer Learning))</p>
-                    <a href="https://github.com/litance/catdogclassification" class="project-btn" data-link="https://github.com/litance/catdogclassification">Learn More</a>
-                </div>
-                <div class="project-card glass-effect">
-                    <h3 class="project-title">Hand Gesture recognition</h3>
-                    <p class="project-description">Finger number recognition system based on Tkinter data collection and MobileNetV2</p>
-                    <a href="https://github.com/litance/handgesturerecognition" class="project-btn" data-link="https://github.com/litance/handgesturerecognition">Learn More</a>
-                </div>
-                <div class="project-card glass-effect">
-                    <h3 class="project-title">Gesture Detection YOLOV8</h3>
-                    <p class="project-description">Gesture detection and event generation based on YOLOV8</p>
-                    <a href="https://github.com/litance/gesturedetectionYOLOV8" class="project-btn" data-link="https://github.com/litance/gesturedetectionYOLOV8">Learn More</a>
-                </div>
-                <div class="project-card glass-effect">
-                    <h3 class="project-title">Tic-Tae-Toc-Bot</h3>
-                    <p class="project-description">Tic-Tae-Toc game model based on DQN neural network deep learning</p>
-                    <a href="https://github.com/litance/Tic-Tae-Toc-Bot" class="project-btn" data-link="https://github.com/litance/Tic-Tae-Toc-Bot">Learn More</a>
-                </div>
-            </div>
-            <button class="carousel-btn next-btn">&#10095;</button>
-        </div>
-    </section>
+            </section>
 
-    <section id="contact" class="section-padding glass-effect">
-        <h2 class="section-title">Get in Touch</h2>
-        <form id="contact-form" action="mailto:leejm-wm24@student.tarc.edu.my" method="post" enctype="text/plain">
-            <div class="form-group">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-            </div>
-            <div class="form-group">
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </section>
+            <!-- Projects Section -->
+            <section id="projects" class="projects section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">My Work</span>
+                        <h2 class="section-title">Featured Projects</h2>
+                    </div>
+                    <div class="projects-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="ai">AI & ML</button>
+                        <button class="filter-btn" data-filter="vision">Computer Vision</button>
+                        <button class="filter-btn" data-filter="web">Web Development</button>
+                    </div>
+                    <div class="projects-grid">
+                        <div class="project-card" data-category="ai vision">
+                            <div class="project-image">
+                                <img src="/api/placeholder/600/400" alt="Handwritten digit recognition">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/litance/CNN-handwrite" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-tags">
+                                    <span class="project-tag">Python</span>
+                                    <span class="project-tag">CNN</span>
+                                    <span class="project-tag">Neural Networks</span>
+                                </div>
+                                <h3 class="project-title">Handwritten Digit Recognition</h3>
+                                <p class="project-description">A Simple Convolutional Neural Network (CNN) for recognizing handwritten digits with high accuracy.</p>
+                                <a href="https://github.com/litance/CNN-handwrite" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" data-category="web">
+                            <div class="project-image">
+                                <img src="/api/placeholder/600/400" alt="Personal web development">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/litance/litancepage" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <h3 class="project-title">Personal Portfolio Website</h3>
+                                <p class="project-description">A responsive and interactive personal portfolio website showcasing my skills and projects.</p>
+                                <a href="https://github.com/litance/litancepage" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" data-category="ai vision">
+                            <div class="project-image">
+                                <img src="/api/placeholder/600/400" alt="Cat Dog Classification">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/litance/catdogclassification" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-tags">
+                                    <span class="project-tag">PyTorch</span>
+                                    <span class="project-tag">ResNet</span>
+                                    <span class="project-tag">Transfer Learning</span>
+                                </div>
+                                <h3 class="project-title">Cat Dog Classification</h3>
+                                <p class="project-description">An image classification system using PyTorch and ResNet transfer learning to identify cats and dogs.</p>
+                                <a href="https://github.com/litance/catdogclassification" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" data-category="ai vision">
+                            <div class="project-image">
+                                <img src="/api/placeholder/600/400" alt="Hand Gesture recognition">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/litance/handgesturerecognition" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-tags">
+                                    <span class="project-tag">Tkinter</span>
+                                    <span class="project-tag">Computer Vision</span>
+                                    <span class="project-tag">MobileNetV2</span>
+                                </div>
+                                <h3 class="project-title">Hand Gesture Recognition</h3>
+                                <p class="project-description">A finger number recognition system using Tkinter for data collection and MobileNetV2 for classification.</p>
+                                <a href="https://github.com/litance/handgesturerecognition" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" data-category="ai vision">
+                            <div class="project-image">
+                                <img src="/api/placeholder/600/400" alt="Gesture Detection YOLOV8">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/litance/gesturedetectionYOLOV8" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-tags">
+                                    <span class="project-tag">YOLOV8</span>
+                                    <span class="project-tag">Object Detection</span>
+                                    <span class="project-tag">Real-time</span>
+                                </div>
+                                <h3 class="project-title">Gesture Detection with YOLOV8</h3>
+                                <p class="project-description">Gesture detection and event generation system using YOLOV8 for real-time hand tracking.</p>
+                                <a href="https://github.com/litance/gesturedetectionYOLOV8" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card" data-category="ai">
+                            <div class="project-image">
+                                <img src="/api/placeholder/600/400" alt="Tic-Tae-Toc-Bot">
+                                <div class="project-overlay">
+                                    <a href="https://github.com/litance/Tic-Tae-Toc-Bot" class="project-link" target="_blank" rel="noopener noreferrer">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <div class="project-tags">
+                                    <span class="project-tag">DQN</span>
+                                    <span class="project-tag">Reinforcement Learning</span>
+                                    <span class="project-tag">Game AI</span>
+                                </div>
+                                <h3 class="project-title">Tic-Tac-Toe Bot</h3>
+                                <p class="project-description">A Tic-Tac-Toe game model using Deep Q-Network (DQN) reinforcement learning algorithms.</p>
+                                <a href="https://github.com/litance/Tic-Tae-Toc-Bot" class="btn btn-sm" target="_blank" rel="noopener noreferrer">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <script src="scripts.js"></script>
+            <!-- Contact Section -->
+            <section id="contact" class="contact section">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">Get In Touch</span>
+                        <h2 class="section-title">Contact Me</h2>
+                    </div>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <h3>Let's Build Something Amazing Together</h3>
+                            <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <p>leejm-wm24@student.tarc.edu.my</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>GitHub</h4>
+                                    <p><a href="https://github.com/litance" target="_blank" rel="noopener noreferrer">github.com/litance</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-links">
+                                <a href="https://github.com/litance" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <form id="contact-form" class="contact-form" action="mailto:leejm-wm24@student.tarc.edu.my" method="post" enctype="text/plain">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <a href="#hero" class="logo">L<span class="accent">.</span></a>
+                        </div>
+                    <div class="footer-links">
+                        <div class="footer-nav">
+                            <a href="#about">About</a>
+                            <a href="#skills">Skills</a>
+                            <a href="#projects">Projects</a>
+                            <a href="#contact">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Litance. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
