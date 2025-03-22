@@ -593,7 +593,7 @@ p {
 .section-tag {
     display: inline-block;
     padding: var(--space-xs) var(--space-md);
-    background-color: var(--primary-light);
+    background-color: var(--primary-dark);
     color: var(--light);
     border-radius: var(--radius-full);
     font-size: 0.875rem;
