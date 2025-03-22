@@ -385,6 +385,17 @@ p {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: var(--space-md);
+    background: linear-gradient(
+        to right,
+        #4285F4, /* Google Blue */
+        #EA4335, /* Google Red */
+        #FBBC05, /* Google Yellow */
+        #34A853  /* Google Green */
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 .hero-description {
